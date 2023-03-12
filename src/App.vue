@@ -5,16 +5,18 @@
   <p>My first Vue App</p>
   <input type="text" v-model="title" ref="name">
   <button @click="changeptag">Click me</button>
+  <ModelView />
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
-
+import ModelView from './components/Model.vue'
 export default {
   name: 'App',
-  // components: {
-  //   HelloWorld
-  // }
+  components: {
+    // HelloWorld
+    ModelView
+  },
   data(){
     return{
       title:"Asad",
