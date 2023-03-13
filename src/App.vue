@@ -1,38 +1,48 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
+  <img alt="Vue logo" src="./assets/logo.png" />
   <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
   <h1>Hello Vue:) {{ title }}</h1>
   <p>My first Vue App</p>
-  <input type="text" v-model="title" ref="name">
+  <input type="text" v-model="title" ref="name" />
   <button @click="changeptag">Click me</button>
-  <ModelView msg="props" job="Full stack Developer" />
+  <h5>Welcome Model</h5>
+  <button @click="toggleModel">Open</button>
+  <div v-if="showModel">
+    <ModelView :msg="msg" :title="title" :location="location" theme="sale">
+      <button class="btn">Yes</button>
+    </ModelView>
+  </div>
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
-import ModelView from './components/Model.vue'
+import ModelView from "./components/Model.vue";
 export default {
-  name: 'App',
+  name: "App",
   components: {
     // HelloWorld
-    ModelView
+    ModelView,
   },
-  data(){
-    return{
-      title:"Asad",
-    }
+  data() {
+    return {
+      msg: "Asad",
+      title: "Laravel Full Stack developer",
+      location: "Ideafist",
+      showModel: false,
+    };
   },
   methods: {
-    changeptag(){
-        this.title="Change Through Button"
-        console.log(this.$refs.name)
-        this.$refs.name.classList.add('form-control')
-        this.$refs.name.focus()
+    changeptag() {
+      this.title = "Change Through Button";
+      console.log(this.$refs.name);
+      this.$refs.name.classList.add("form-control");
+      this.$refs.name.focus();
+    },
+    toggleModel(){
+      this.showModel=!this.showModel
     }
-
-
   },
-}
+};
 </script>
 
 <style>
