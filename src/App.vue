@@ -8,9 +8,9 @@
   <h5>Welcome Model</h5>
   <button @click="toggleModel">Open</button>
   <div v-if="showModel">
-    <ModelView :msg="msg" :title="title" :location="location" theme="sale">
-      <button class="btn">Yes</button>
-    </ModelView>
+    <ModelView :msg="msg" :title="title" :location="location" theme="sale" @close="toggleModel" />
+      <!-- <button class="btn">Yes</button>
+    </ModelView> -->
   </div>
 </template>
 

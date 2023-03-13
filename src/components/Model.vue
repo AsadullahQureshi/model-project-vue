@@ -1,5 +1,5 @@
 <template>
-  <div class="backdrop">
+  <div class="backdrop" @click="closeModel">
     <div class="model" :class="{sale:theme==='sale'}">
       <h1>{{ title }}</h1>
       <p>{{ msg }}</p>
