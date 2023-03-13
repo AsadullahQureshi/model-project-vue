@@ -5,7 +5,7 @@
   <p>My first Vue App</p>
   <input type="text" v-model="title" ref="name">
   <button @click="changeptag">Click me</button>
-  <ModelView />
+  <ModelView msg="props" job="Full stack Developer" />
 </template>
 
 <script>
