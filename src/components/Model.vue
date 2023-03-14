@@ -1,6 +1,6 @@
 <template>
   <div class="backdrop" @click.self="closeModel">
-    <div class="model" :class="{sale:theme==='sale'}">
+    <div class="model" :class="{sale:theme==='sale'}" @click="closeModel">
       <h1>{{ title }}</h1>
       <p>{{ msg }}</p>
       <p>{{ job }}</p>
@@ -9,7 +9,6 @@
          <slot name="links"></slot>
         <!-- <slot></slot> -->
       </div>
-
 
     </div>
   </div>
@@ -58,20 +57,9 @@ export default {
   border-radius:10px;
 }
 
-.model .sale .actions .btn {
-  text-align: center;
-  color:white;
-  background: red;
-  padding: 2px;
-  border: 1px solid white;
-}
-.model.sale{
- background-color: crimson;
+.model.sale {
+ background: crimson;
  color: white;
-}
-.model  a{
-  background-color: crimson;
-  color: aliceblue;
 }
 
 </style>
