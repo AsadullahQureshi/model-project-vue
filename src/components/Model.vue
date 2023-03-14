@@ -1,11 +1,16 @@
 <template>
-  <div class="backdrop" @click="closeModel">
+  <div class="backdrop" @click.self="closeModel">
     <div class="model" :class="{sale:theme==='sale'}">
       <h1>{{ title }}</h1>
       <p>{{ msg }}</p>
       <p>{{ job }}</p>
       <p>{{ location }}</p>
-      <slot></slot>
+      <div class="actions">
+         <slot name="links"></slot>
+        <!-- <slot></slot> -->
+      </div>
+
+
     </div>
   </div>
 </template>
@@ -30,6 +35,13 @@ export default {
 </script>
   
   <style scoped>
+.backdrop{
+  top:0;
+  position:fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0,0, 0.3);
+}
 .model {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -45,21 +57,22 @@ export default {
   float: center;
   border-radius:10px;
 }
-.backdrop{
-  top:0;
-  position:fixed;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0,0, 0.3);
-}
 
+.model .sale .actions .btn {
+  text-align: center;
+  color:white;
+  background: red;
+  padding: 2px;
+  border: 1px solid white;
+}
 .model.sale{
  background-color: crimson;
  color: white;
 }
-.model .sale, .btn{
+.model  a{
   background-color: crimson;
-
+  color: aliceblue;
 }
+
 </style>
   

@@ -6,12 +6,15 @@
   <input type="text" v-model="title" ref="name" />
   <button @click="changeptag">Click me</button>
   <h5>Welcome Model</h5>
-  <button @click="toggleModel">Open</button>
+  <button @click.alt="toggleModel">Open (alt)</button>
   <div v-if="showModel">
-    <ModelView :msg="msg" :title="title" :location="location" theme="sale" @close="toggleModel" />
-      <!-- <button class="btn">Yes</button>
-    </ModelView> -->
-  </div>
+    <ModelView :msg="msg" :title="title" :location="location" theme="sale" @close="toggleModel" >
+      <template v-slot:links>
+        <a class="btn" href="#">Yes</a>
+        <p>Hello this is actions</p>
+      </template>
+     </ModelView>  
+     </div>
 </template>
 
 <script>
@@ -54,4 +57,5 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
 </style>
